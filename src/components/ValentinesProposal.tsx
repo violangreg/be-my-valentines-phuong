@@ -3,6 +3,7 @@ import { Playfair_Display } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
 import Fireworks from "@fireworks-js/react";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/assetPath";
 
 const playfairDisplay = Playfair_Display({
   display: "swap",
@@ -10,7 +11,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 // 36 images
-const images = [
+const baseImages = [
   "/game-photos/1.avif",
   "/game-photos/2.avif",
   "/game-photos/3.avif",
@@ -48,6 +49,8 @@ const images = [
   "/game-photos/35.avif",
   "/game-photos/36.avif",
 ];
+
+const images = baseImages.map(getAssetPath);
 
 export default function ValentinesProposal() {
   const [step, setStep] = useState(0);
@@ -135,7 +138,7 @@ export default function ValentinesProposal() {
               Will you be my Valentine?
             </h2>
             <Image
-              src="/sad_hamster.png"
+              src={getAssetPath("/sad_hamster.png")}
               alt="Sad Hamster"
               width={200}
               height={200}
@@ -175,12 +178,12 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Hehee ;) thank you for accepting, happy valentine, my love, Dieu Phuong Hoang!! 💕
+            Hehee ;) thank you for accepting, Dieu Phuong Hoang, my love!! 💕
             <p className="text-sm mt-4">You are the most beautiful, kindest, and amazing person in the world!!! 💌</p>
             <p className="text-sm mt-4">Thank you for always staying by my side and making me happy!! ❤️💕🥰😘💖💗💓 </p>
             <p className="text-sm mt-4">I love you so much, my dearest Valentine!! 💖</p>
             <Image
-              src="/hamster_jumping.gif"
+              src={getAssetPath("/hamster_jumping.gif")}
               alt="Hamster Feliz"
               width={200}
               height={200}
