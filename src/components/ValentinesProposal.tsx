@@ -175,8 +175,10 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Thank you for accepting, I love you! 💕
-            <p className="text-sm mt-4">For more information, write me!!! 💌</p>
+            Hehee ;) thank you for accepting, happy valentine, my love, Dieu Phuong Hoang!! 💕
+            <p className="text-sm mt-4">You are the most beautiful, kindest, and amazing person in the world!!! 💌</p>
+            <p className="text-sm mt-4">Thank you for always staying by my side and making me happy!! ❤️💕🥰😘💖💗💓 </p>
+            <p className="text-sm mt-4">I love you so much, my dearest Valentine!! 💖</p>
             <Image
               src="/hamster_jumping.gif"
               alt="Hamster Feliz"

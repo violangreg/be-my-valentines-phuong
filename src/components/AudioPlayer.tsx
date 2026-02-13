@@ -1,0 +1,38 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+
+export default function AudioPlayer() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <>
+      <audio
+        ref={audioRef}
+        src="/audio/background-music.mp3"
+        loop
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      />
+      <button
+        onClick={toggleAudio}
+        className="fixed bottom-4 right-4 z-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full p-3 shadow-lg transition-colors"
+        aria-label={isPlaying ? "Pause music" : "Play music"}
+      >
+        {isPlaying ? "🔊" : "🔇"}
+      </button>
+    </>
+  );
+}
