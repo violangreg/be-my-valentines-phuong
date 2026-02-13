@@ -2,10 +2,18 @@
 
 import { useState, useRef, useEffect } from "react";
 import { getAssetPath } from "@/lib/assetPath";
+import { useAudio } from "@/lib/AudioContext";
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const { registerAudio } = useAudio();
+
+  useEffect(() => {
+    if (audioRef.current) {
+      registerAudio(audioRef as React.RefObject<HTMLAudioElement>);
+    }
+  }, [registerAudio]);
 
   const toggleAudio = () => {
     if (audioRef.current) {

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Fireworks from "@fireworks-js/react";
 import Image from "next/image";
 import { getAssetPath } from "@/lib/assetPath";
+import { useAudio } from "@/lib/AudioContext";
 
 const playfairDisplay = Playfair_Display({
   display: "swap",
@@ -59,12 +60,18 @@ export default function ValentinesProposal() {
     left: string;
   } | null>(null);
   const [showFireworks, setShowFireworks] = useState(false);
+  const { changeSong } = useAudio();
 
   const getRandomPosition = () => {
     const randomTop = Math.random() * 80;
     const randomLeft = Math.random() * 80;
     return { top: `${randomTop}%`, left: `${randomLeft}%` };
   };
+
+  useEffect(() => {
+    // Switch to background-music-2.mp3 when this component mounts
+    changeSong(getAssetPath("/audio/background-music-2.mp3"));
+  }, [changeSong]);
 
   useEffect(() => {
     if (step < 2) {
@@ -94,7 +101,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            Congratulations! You have completed the game.
+            Thank you for filling my heart with your love 💖💖💖
           </motion.h2>
         )}
         {step === 1 && (
@@ -106,7 +113,7 @@ export default function ValentinesProposal() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            I have a surprise for you!
+            I have a surprise for you! 🎁
           </motion.h2>
         )}
         {step === 2 && (
