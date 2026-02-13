@@ -29,7 +29,7 @@ export default function AudioPlayer() {
       />
       <button
         onClick={toggleAudio}
-        className="fixed bottom-4 right-4 z-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full p-3 shadow-lg transition-colors"
+        className="fixed top-4 right-4 z-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full p-3 shadow-lg transition-colors"
         aria-label={isPlaying ? "Pause music" : "Play music"}
       >
         {isPlaying ? "🔊" : "🔇"}

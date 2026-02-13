@@ -6,6 +6,7 @@ import PhotoPairGame from "../components/PhotoPairGame";
 import ValentinesProposal from "@/components/ValentinesProposal";
 import TextFooter from "@/components/TextFooter";
 import OrientationGuard from "@/components/OrientationGuard";
+import AudioPlayer from "@/components/AudioPlayer";
 
 const ANIM_DURATION = 2;
 
@@ -22,7 +23,7 @@ export default function Home() {
 
   return (
     <OrientationGuard>
-      
+      <AudioPlayer />
       <main className="flex items-center justify-center min-h-screen bg-black overflow-hidden relative">
         {!showValentinesProposal ? (
           <motion.div

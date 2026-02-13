@@ -1,6 +1,5 @@
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
-import AudioPlayer from "./AudioPlayer";
 
 const playfairDisplay = Playfair_Display({
   display: "swap",
@@ -23,7 +22,6 @@ export default function TextFooter() {
       >
         to reveal <br /> <span className="text-gray-400">the surprise</span>
       </h1>
-      <AudioPlayer />
       {/* Copyright */}
       <p className="absolute bottom-5 right-5 text-white text-sm opacity-15 hover:opacity-50">
         © {new Date().getFullYear()}{" "}
