@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { getAssetPath } from "@/lib/assetPath";
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -21,7 +22,7 @@ export default function AudioPlayer() {
     <>
       <audio
         ref={audioRef}
-        src="/audio/background-music.mp3"
+        src={getAssetPath("/audio/background-music.mp3")}
         loop
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}

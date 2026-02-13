@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { getAssetPath } from "@/lib/assetPath";
 
 // 18 images
-const images = [
+const baseImages = [
   "/game-photos/1.avif",
   "/game-photos/2.avif",
   "/game-photos/3.avif",
@@ -25,6 +26,8 @@ const images = [
   "/game-photos/17.avif",
   "/game-photos/18.avif",
 ];
+
+const images = baseImages.map(getAssetPath);
 
 // Create 18 pairs of images (36 images in total)
 const imagePairs = images.flatMap((image) => [image, image]);
